@@ -12,6 +12,7 @@ import org.springframework.test.context.support.AnnotationConfigContextLoader;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -29,10 +30,22 @@ public class SpringContextIntegrationTest {
 
 
     @Test
-    public void exampleTest() throws Exception {
+    public void testCallToRootEndpoint() throws Exception {
         this.mockMvc
                 .perform(get("/api"))
                 .andExpect(status().isOk())
-                .andExpect(content().string("Please use GET /api/list to get a list"));
+                .andExpect(content().string("Please use GET /api/names to get a list of the N first names, or a GET /api/names/idx to get a specific name"));
+    }
+
+
+    @Test
+    public void testAll() throws Exception {
+    this.mockMvc
+        .perform(get("/api/names"))
+        .andDo(print())
+        .andExpect(
+            content()
+                .json(
+                    "[\"Aaron\",\"Abbas\",\"Abbe\",\"Abdallah\",\"Abdirahim\",\"Abdirahman\",\"Abdulahi \",\"Abdullah\",\"Abdullahi\",\"Abdulrahman \",\"Abel \",\"Abraham\",\"Acke\",\"Adam\",\"Adel\",\"Adem\",\"Adil\",\"Adin\",\"Adis\",\"Adnan\"]"));
     }
 }
