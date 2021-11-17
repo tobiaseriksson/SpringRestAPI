@@ -10,6 +10,9 @@ libraryDependencies += "org.springframework.boot" % "spring-boot-starter-parent"
 // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
 libraryDependencies += "org.springframework.boot" % "spring-boot-starter-web" % "2.5.6"
 
+// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security
+libraryDependencies += "org.springframework.boot" % "spring-boot-starter-security" % "2.5.6"
+
 // https://mvnrepository.com/artifact/junit/junit
 libraryDependencies += "junit" % "junit" % "4.13.2" % Test
 

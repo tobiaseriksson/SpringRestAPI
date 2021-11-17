@@ -13,24 +13,40 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/")
 public class MainController {
 
     @Autowired(required=true)
     public Names names;
 
-
-    @GetMapping(value="")
+    /**
+     * Endpoint /help that provides som helpful text
+     * NOTE! that this endpoint is made available to all / no security, through the SecurityConfig class
+     * @return
+     */
+    @GetMapping(value="/help")
     public String help() {
         return "Please use GET /api/names to get a list of the N first names, or a GET /api/names/idx to get a specific name";
     }
 
-    @GetMapping(value = "/names")
+
+    /**
+     * Returns a list of N names
+     * This endpoint is secured
+     * @return
+     */
+    @GetMapping(value = "/api/names")
     public List<String> list() {
         return names.all().stream().limit(15).collect(Collectors.toList());
     }
 
-    @GetMapping(value = "/names/{id}")
+    /**
+     * Returns a specific name from the list (based on an index)
+     * This endpoint is secured
+     * @param id
+     * @return
+     */
+    @GetMapping(value = "/api/names/{id}")
     public String specificName(@PathVariable("id") Long id) {
         return names.byIndex(id);
     }
