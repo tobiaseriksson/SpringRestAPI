@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 @RequestMapping("/api")
 public class MainController {
 
-    @Autowired
+    @Autowired(required=true)
     public Names names;
 
 
@@ -27,7 +27,7 @@ public class MainController {
 
     @GetMapping(value = "/names")
     public List<String> list() {
-        return names.all().stream().limit(20).collect(Collectors.toList());
+        return names.all().stream().limit(15).collect(Collectors.toList());
     }
 
     @GetMapping(value = "/names/{id}")

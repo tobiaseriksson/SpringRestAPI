@@ -4,11 +4,13 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.SpringBootTest.*;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
+import org.springframework.test.web.reactive.server.WebTestClient;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -20,14 +22,18 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
+
+/**
+ * This class is intended to show how to test using MockMvc
+ */
 @RunWith(SpringRunner.class)
 @SpringBootTest
+// @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
 public class SpringContextIntegrationTest {
 
     @Autowired
     private MockMvc mockMvc;
-
 
     @Test
     public void testCallToRootEndpoint() throws Exception {
@@ -46,6 +52,8 @@ public class SpringContextIntegrationTest {
         .andExpect(
             content()
                 .json(
-                    "[\"Aaron\",\"Abbas\",\"Abbe\",\"Abdallah\",\"Abdirahim\",\"Abdirahman\",\"Abdulahi \",\"Abdullah\",\"Abdullahi\",\"Abdulrahman \",\"Abel \",\"Abraham\",\"Acke\",\"Adam\",\"Adel\",\"Adem\",\"Adil\",\"Adin\",\"Adis\",\"Adnan\"]"));
+                    "[\"Aaron\",\"Abbas\",\"Abbe\",\"Abdallah\",\"Abdirahim\",\"Abdirahman\",\"Abdulahi \",\"Abdullah\",\"Abdullahi\",\"Abdulrahman \",\"Abel \",\"Abraham\",\"Acke\",\"Adam\",\"Adel\"]"));
     }
+
+
 }

@@ -27,6 +27,7 @@ public class Names {
     public Names() {
         names.addAll( readFileFromResource("names_boys.txt ") );
         names.addAll( readFileFromResource( "names_girls.txt") );
+        System.out.println("Names initilized");
     }
 
     public List<String> all() {
