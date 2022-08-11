@@ -1,6 +1,10 @@
 # SpringRestAPI
-Just demo how you would do a simple Spring based API
-Endpoints
+Just demo how you would do a simple Spring based REST API
+WEB-Page Endpoint
+* GET /ui
+  (this will show a webpage, where a simple javascript will query the REST API for some names...)
+
+REST Endpoints
 * GET /help
 * GET /api/names
 * GET /api/names/\<id\>

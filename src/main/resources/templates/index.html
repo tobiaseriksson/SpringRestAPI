@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset = "ISO-8859-1" />
+    <link href = "css/styles.css" rel = "stylesheet"/>
+    <title>Spring Boot Application</title>
+</head>
+<body>
+<h4>Welcome to Spring Boot Application Demo</h4>
+<h5>Query API for names</h5>
+Below should be a list of names:<br>
+<div id="data"></div>
+</body>
+<script>
+
+async function fillWithNames() {
+    let dataDiv = document.getElementById("data");
+    let response = await fetch(`http://localhost:8082/api/names`);
+    let names = await response.json();
+    console.log("names:"+names);
+    let content = "";
+    for(const name of names) {
+        content = content + name + "<br>";
+    }
+    dataDiv.innerHTML = content;
+ }
+
+ fillWithNames();
+
+</script>
+</html>

@@ -10,6 +10,11 @@ libraryDependencies += "org.springframework.boot" % "spring-boot-starter-parent"
 // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
 libraryDependencies += "org.springframework.boot" % "spring-boot-starter-web" % "2.5.6"
 
+// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-thymeleaf
+libraryDependencies += "org.springframework.boot" % "spring-boot-starter-thymeleaf" % "2.5.6"
+
+libraryDependencies += "org.springframework.boot" % "spring-boot-devtools" % "2.5.6"
+
 // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security
 libraryDependencies += "org.springframework.boot" % "spring-boot-starter-security" % "2.5.6"
 

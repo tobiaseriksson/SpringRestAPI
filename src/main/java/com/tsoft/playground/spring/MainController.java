@@ -20,17 +20,6 @@ public class MainController {
     public Names names;
 
     /**
-     * Endpoint /help that provides som helpful text
-     * NOTE! that this endpoint is made available to all / no security, through the SecurityConfig class
-     * @return
-     */
-    @GetMapping(value="/help")
-    public String help() {
-        return "Please use GET /api/names to get a list of the N first names, or a GET /api/names/idx to get a specific name";
-    }
-
-
-    /**
      * Returns a list of N names
      * This endpoint is secured
      * @return

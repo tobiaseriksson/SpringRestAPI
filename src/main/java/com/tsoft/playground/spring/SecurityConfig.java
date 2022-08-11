@@ -12,8 +12,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        // super.configure(web);
+        super.configure(web);
         web.ignoring().antMatchers("/help");
+        web.ignoring().antMatchers("/ui");
+        web.ignoring().antMatchers("/api/names");
+        web.ignoring().antMatchers("/error");
     }
 
     @Override
